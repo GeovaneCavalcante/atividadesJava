@@ -47,9 +47,13 @@ public final class Estoque {
     }  
     
     void darBaixa(int qtd){
-        int quant = this.getQuantidade();
-        quant -= qtd;
-        this.setQuantidade(quant);
+        if((this.getQuantidade()+qtd)>0){
+             int quant = this.getQuantidade();
+             quant += qtd;
+             this.setQuantidade(quant);
+        }else{
+            System.out.println("Vocẽ não pode retira esse numero de objeto do estoque");
+        }
     } 
     String descricao(){
         String descri = (this.getNome() + " Tem em estoque " +this.getQuantidade()+ " unidades, e sua quantidade mínima é " + this.getQuantidade_minima() + " unidades");
